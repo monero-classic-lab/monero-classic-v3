@@ -240,13 +240,13 @@ pkg install git gmake cmake pkgconf boost-libs libzmq4 libsodium unbound
 Clone recursively to pull-in needed submodule(s):
 
 ```
-git clone --recursive https://github.com/monero-project/monero
+git clone --recursive https://github.com/monero-classic-lab/monero-classic-v3.git
 ```
 
 If you already have a repo cloned, initialize and update:
 
 ```
-cd monero && git submodule init && git submodule update
+cd monero-classic-v3 && git submodule init && git submodule update
 ```
 
 *Note*: If there are submodule differences between branches, you may need 
@@ -264,8 +264,8 @@ invokes cmake commands as needed.
 * Change to the root of the source code directory, change to the most recent release branch, and build:
 
     ```bash
-    cd monero
-    git checkout release-v0.18
+    cd monero-classic-v3
+    
     make
     ```
 
@@ -282,9 +282,9 @@ invokes cmake commands as needed.
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `PATH="$PATH:$HOME/monero/build/release/bin"` to `.profile`
+* Add `PATH="$PATH:$HOME//monero-classic-v3/build/release/bin"` to `.profile`
 
-* Run Monero with `monerod --detach`
+* Run Monero with `moneroclassicd --detach`
 
 * **Optional**: build and run the test suite to verify the binaries:
 
@@ -342,9 +342,9 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 * Clone Monero and checkout the most recent release version:
 
     ```bash
-    git clone https://github.com/monero-project/monero.git
-    cd monero
-    git checkout v0.18.2.2
+    git clone https://github.com/monero-classic-lab/monero-classic-v3.git
+    cd monero-classic-v3
+    
     ```
 
 * Build:
@@ -357,11 +357,11 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `export PATH="$PATH:$HOME/monero/build/release/bin"` to `$HOME/.profile`
+* Add `export PATH="$PATH:$HOME/monero-classic-v3/build/release/bin"` to `$HOME/.profile`
 
 * Run `source $HOME/.profile`
 
-* Run Monero with `monerod --detach`
+* Run Monero with `moneroclassicd --detach`
 
 * You may wish to reduce the size of the swap file after the build has finished, and delete the boost directory from your home directory
 
@@ -452,7 +452,7 @@ application.
 * To git clone, run:
 
     ```bash
-    git clone --recursive https://github.com/monero-project/monero.git
+    git clone --recursive https://github.com/monero-classic-lab/monero-classic-v3.git 
     ```
 
 **Building**
@@ -460,13 +460,13 @@ application.
 * Change to the cloned directory, run:
 
     ```bash
-    cd monero
+    cd monero-classic-v3
     ```
 
 * If you would like a specific [version/tag](https://github.com/monero-project/monero/tags), do a git checkout for that version. eg. 'v0.18.2.2'. If you don't care about the version and just want binaries from master, skip this step:
 
     ```bash
-    git checkout v0.18.2.2
+    
     ```
 
 * If you are on a 64-bit system, run:
@@ -502,7 +502,7 @@ application.
 The project can be built from scratch by following instructions for Linux above(but use `gmake` instead of `make`). 
 If you are running Monero in a jail, you need to add `sysvsem="new"` to your jail configuration, otherwise lmdb will throw the error message: `Failed to open lmdb environment: Function not implemented`.
 
-Monero is also available as a port or package as `monero-cli`.
+Moneroclassic is also available as a port or package as `moneroclassic-cli`.
 
 ### On OpenBSD:
 
