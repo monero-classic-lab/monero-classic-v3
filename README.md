@@ -1,21 +1,18 @@
-# Monero-classic
+# Monero-Classic
 
-Copyright (c) 2014-2022 The Monero Project.  
+Copyright (c) 2014-2022 The Monero-Classic Project.  
 Portions Copyright (c) 2012-2013 The Cryptonote developers.
+Portions Copyright (c) 2012-2024 The Monero developers.
 
 ## Table of Contents
 
   - [Development resources](#development-resources)
-  - [Vulnerability response](#vulnerability-response)
-  - [Research](#research)
   - [Announcements](#announcements)
-  - [Translations](#translations)
   - [Coverage](#coverage)
   - [Introduction](#introduction)
   - [About this project](#about-this-project)
   - [Supporting the project](#supporting-the-project)
   - [License](#license)
-  - [Contributing](#contributing)
   - [Scheduled software upgrades](#scheduled-software-upgrades)
   - [Release staging schedule and protocol](#release-staging-schedule-and-protocol)
   - [Compiling Monero from source](#compiling-monero-from-source)
@@ -29,32 +26,12 @@ Portions Copyright (c) 2012-2013 The Cryptonote developers.
 ## Development resources
 
 - Web: [Monero-classic.org](https://Monero-classic.org)
-- Forum: [forum.Monero-classic.org](https://forum.Monero-classic.org)
 - Mail: [dev@Monero-classic.org](mailto:dev@Monero-classic.org)
 - GitHub: [https://github.com/monero-classic-lab/monero-classic-v3](https://github.com/monero-classic-lab/monero-classic-v3)
-- IRC: [#monero-classic-dev on Libera](https://web.libera.chat/#monero-classic-dev)
-- It is HIGHLY recommended that you join the #monero-classic-dev IRC channel if you are developing software that uses Monero-classic. Due to the nature of this open source software project, joining this channel and idling is the best way to stay updated on best practices and new developments in the Monero-classic ecosystem. All you need to do is join the IRC channel and idle to stay updated with the latest in Monero-classic development. If you do not, you risk wasting resources on developing integrations that are not compatible with the Monero-classic network. The Monero-classic core team and community continuously make efforts to communicate updates, developments, and documentation via other platforms – but for the best information, you need to talk to other Monero-classic developers, and they are on IRC. #monero-classic-dev is about Monero-classic development, not getting help about using Monero-classic, or help about development of other software, including yours, unless it also pertains to Monero code itself. For these cases, checkout #monero-classic.
-
-## Vulnerability response
-
-- Our [Vulnerability Response Process](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md) encourages responsible disclosure
-- We are also available via [HackerOne](https://hackerone.com/monero-classic)
-
-## Research
-
-The [Monero Research Lab](https://src.getmonero.org/resources/research-lab/) is an open forum where the community coordinates research into Monero cryptography, protocols, fungibility, analysis, and more. We welcome collaboration and contributions from outside researchers! Because not all Lab work and publications are distributed as traditional preprints or articles, they may be easy to miss if you are conducting literature reviews for your own Monero research. You are encouraged to get in touch with the Monero research community if you have questions, wish to collaborate, or would like guidance to help avoid unnecessarily duplicating earlier or known work.
-
-The Monero research community is available on IRC in [#monero-research-lab on Libera](https://web.libera.chat/#monero-research-lab), which is also accessible via Matrix.
 
 ## Announcements
 
 - You can subscribe to an [announcement listserv](https://lists.monero-classic.org) to get critical announcements from the Monero core team. The announcement list can be very helpful for knowing when software updates are needed.
-
-## Translations
-The CLI wallet is available in different languages. If you want to help translate it, see our self-hosted localization platform, Weblate, on [translate.monero-classic.org]( https://translate.monero-classic.org/projects/monero-classic/cli-wallet/). Every translation *must* be uploaded on the platform, pull requests directly editing the code in this repository will be closed. If you need help with Weblate, you can find a guide with screenshots [here](https://github.com/monero-classic-ecosystem/monero-classic-translations/blob/master/weblate.md).
-&nbsp;
-
-If you need help/support/info about translations, contact the localization workgroup. You can find the complete list of contacts on the repository of the workgroup: [monero-translations](https://github.com/monero-ecosystem/monero-translations#contacts).
 
 ## Coverage
 
@@ -87,7 +64,7 @@ As with many development projects, the repository on GitHub is considered to be 
 
 ## Supporting the project
 
-Monero-classic is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. Both Monero-classic and Bitcoin donations can be made to **donate.monero-classic.org** if using a client that supports the [OpenAlias](https://openalias.org) standard. Alternatively, you can send XMR to the Monero-classic donation address via the `donate` command (type `help` in the command-line wallet for details).
+Monero-classic is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. Both Monero-classic and Bitcoin donations can be made to **donate.monero-classic.org** if using a client that supports the [OpenAlias](https://openalias.org) standard. Alternatively, you can send XMC to the Monero-classic donation address via the `donate` command (type `help` in the command-line wallet for details).
 
 The Monero-classic donation address is:  
 `888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H`  
@@ -96,61 +73,21 @@ Viewkey:
 Base address for restoring with address and viewkey:
 `44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A`  
 
-The Bitcoin donation address is:  
-`1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H`
-
-Core development funding and/or some supporting services are also graciously provided by [sponsors](https://www.getmonero.org/community/sponsorships/):
-
-[<img width="150" src="https://www.getmonero.org/img/sponsors/tarilabs.png"/>](https://tarilabs.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/globee.png"/>](https://globee.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/symas.png"/>](https://symas.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/forked_logo.png"/>](http://www.forked.net/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/macstadium.png"/>](https://www.macstadium.com/)
-
-There are also several mining pools that kindly donate a portion of their fees, [a list of them can be found on our Bitcointalk post](https://bitcointalk.org/index.php?topic=583449.0).
-
 ## License
 
 See [LICENSE](LICENSE).
 
-## Contributing
-
-If you want to help out, see [CONTRIBUTING](docs/CONTRIBUTING.md) for a set of guidelines.
-
 ## Scheduled software upgrades
 
-Monero-classic uses a fixed-schedule software upgrade (hard fork) mechanism to implement new features. This means that users of Monero-classic (end users and service providers) should run current versions and upgrade their software on a regular schedule. Software upgrades occur during the months of April and October. The required software for these upgrades will be available prior to the scheduled date. Please check the repository prior to this date for the proper Monero-classic software version. Below is the historical schedule and the projected schedule for the next upgrade.
-Dates are provided in the format YYYY-MM-DD.
-
-
-| Software upgrade block height  | Date       | Fork version      | Minimum Monero version | Recommended Monero version | Details                                                                            |
-| ------------------------------ | -----------| ----------------- | ---------------------- | -------------------------- | ---------------------------------------------------------------------------------- |
-| 1009827                        | 2016-03-22 | v2                | v0.9.4                 | v0.9.4                     | Allow only >= ringsize 3, blocktime = 120 seconds, fee-free blocksize 60 kb       |
-| 1141317                        | 2016-09-21 | v3                | v0.9.4                 | v0.10.0                    | Splits coinbase into denominations  |
-| 1220516                        | 2017-01-05 | v4                | v0.10.1                | v0.10.2.1                  | Allow normal and RingCT transactions |
-| 1288616                        | 2017-04-15 | v5                | v0.10.3.0              | v0.10.3.1                  | Adjusted minimum blocksize and fee algorithm      |
-| 1400000                        | 2017-09-16 | v6                | v0.11.0.0              | v0.11.0.0                  | Allow only RingCT transactions, allow only >= ringsize 5      |
-| 1546000                        | 2018-04-06 | v7                | v0.12.0.0              | v0.12.3.0                  | Cryptonight variant 1, ringsize >= 7, sorted inputs
-| 1685555                        | 2018-10-18 | v8                | v0.13.0.0              | v0.13.0.4                  | max transaction size at half the penalty free block size, bulletproofs enabled, cryptonight variant 2, fixed ringsize [11](https://youtu.be/KOO5S4vxi0o)
-| 1686275                        | 2018-10-19 | v9                | v0.13.0.0              | v0.13.0.4                  | bulletproofs required
-| 1788000                        | 2019-03-09 | v10               | v0.14.0.0              | v0.14.1.2                  | New PoW based on Cryptonight-R, new block weight algorithm, slightly more efficient RingCT format
-| 1788720                        | 2019-03-10 | v11               | v0.14.0.0              | v0.14.1.2                  | forbid old RingCT transaction format
-| 1978433                        | 2019-11-30 | v12               | v0.15.0.0              | v0.16.0.0                  | New PoW based on RandomX, only allow >= 2 outputs, change to the block median used to calculate penalty, v1 coinbases are forbidden, rct sigs in coinbase forbidden, 10 block lock time for incoming outputs
-| 2210000                        | 2020-10-17 | v13               | v0.17.0.0              | v0.17.3.2                  | New CLSAG transaction format
-| 2210720                        | 2020-10-18 | v14               | v0.17.1.1              | v0.17.3.2                  | forbid old MLSAG transaction format
-| 2688888                        | 2022-08-13 | v15               | v0.18.0.0              | v0.18.2.2                  | ringsize = 16, bulletproofs+, view tags, adjusted dynamic block weight algorithm
-| 2689608                        | 2022-08-14 | v16               | v0.18.0.0              | v0.18.2.2                  | forbid old v14 transaction format
-| XXXXXXX                        | XXX-XX-XX | XXX                | vX.XX.X.X              | vX.XX.X.X                  | XXX |
-
-X's indicate that these details have not been determined as of commit date.
-
-\* indicates estimate as of commit date
+Monero-Classic V3 is a new version that no longer inherits the block data of V1. 
+V3 XMC restarts from block height 0.
+All V1 XMC need to be mapped to V3 XMC
 
 ## Release staging schedule and protocol
 
-Approximately three months prior to a scheduled software upgrade, a branch from master will be created with the new release version tag. Pull requests that address bugs should then be made to both master and the new release branch. Pull requests that require extensive review and testing (generally, optimizations and new features) should *not* be made to the release branch.
+Approximately one months prior to a scheduled software upgrade, a branch from master will be created with the new release version tag. Pull requests that address bugs should then be made to both master and the new release branch. Pull requests that require extensive review and testing (generally, optimizations and new features) should *not* be made to the release branch.
 
-## Compiling Monero-classic from source
+## Compiling Monero-Classic from source
 
 ### Dependencies
 
