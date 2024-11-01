@@ -219,9 +219,9 @@ invokes cmake commands as needed.
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `PATH="$PATH:$HOME//monero-classic-v3/build/release/bin"` to `.profile`
+* Add `PATH="$PATH:$HOME//monero-classic-v3//build/Linux/main/release/bin"` to `.profile`
 
-* Run Monero-classic with `moneroclassicd --detach`
+* Run Monero-Classic with `moneroclassicd --detach`
 
 * **Optional**: build and run the test suite to verify the binaries:
 
@@ -251,7 +251,7 @@ Dependencies need to be built with -fPIC. Static libraries usually aren't, so yo
     HAVE_DOT=YES doxygen Doxyfile
     ```
 
-* **Optional**: use ccache not to rebuild translation units, that haven't really changed. Monero-classic's CMakeLists.txt file automatically handles it
+* **Optional**: use ccache not to rebuild translation units, that haven't really changed. Monero-Classic's CMakeLists.txt file automatically handles it
 
     ```bash
     sudo apt install ccache
@@ -263,7 +263,7 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * `apt-get update && apt-get upgrade` to install all of the latest software
 
-* Install the dependencies for Monero-classic from the 'Debian' column in the table above.
+* Install the dependencies for Monero-Classic from the 'Debian' column in the table above.
 
 * Increase the system swap size:
 
@@ -276,10 +276,10 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * If using an external hard disk without an external power supply, ensure it gets enough power to avoid hardware issues when syncing, by adding the line "max_usb_current=1" to /boot/config.txt
 
-* Clone Monero-classic and checkout the most recent release version:
+* Clone Monero-Classic and checkout the most recent release version:
 
     ```bash
-    git clone https://github.com/monero-classic-lab/monero-classic-v3.git
+    git  clone --recursive https://github.com/monero-classic-lab/monero-classic-v3.git
     cd monero-classic-v3
     
     ```
@@ -294,7 +294,7 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `export PATH="$PATH:$HOME/monero-classic-v3/build/release/bin"` to `$HOME/.profile`
+* Add `export PATH="$PATH:$HOME/monero-classic-v3/build/Linux/main/release/bin"` to `$HOME/.profile`
 
 * Run `source $HOME/.profile`
 
@@ -304,7 +304,7 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 #### *Note for Raspbian Jessie users:*
 
-If you are using the older Raspbian Jessie image, compiling Monero-classic is a bit more complicated. The version of Boost available in the Debian Jessie repositories is too old to use with Monero-classic, and thus you must compile a newer version yourself. The following explains the extra steps and has been tested on a Raspberry Pi 2 with a clean install of minimal Raspbian Jessie.
+If you are using the older Raspbian Jessie image, compiling Monero-Classic is a bit more complicated. The version of Boost available in the Debian Jessie repositories is too old to use with Monero-classic, and thus you must compile a newer version yourself. The following explains the extra steps and has been tested on a Raspberry Pi 2 with a clean install of minimal Raspbian Jessie.
 
 * As before, `apt-get update && apt-get upgrade` to install all of the latest software, and increase the system swap size
 
@@ -316,7 +316,7 @@ If you are using the older Raspbian Jessie image, compiling Monero-classic is a 
     ```
 
 
-* Then, install the dependencies for Monero-classic except for `libunwind` and `libboost-all-dev`
+* Then, install the dependencies for Monero-Classic except for `libunwind` and `libboost-all-dev`
 
 * Install the latest version of boost (this may first require invoking `apt-get remove --purge libboost*-dev` to remove a previous version if you're not using a clean install):
 
@@ -337,7 +337,7 @@ If you are using the older Raspbian Jessie image, compiling Monero-classic is a 
 
 * Wait ~4 hours
 
-* From here, follow the [general Raspberry Pi instructions](#on-the-raspberry-pi) from the "Clone Monero-classic and checkout most recent release version" step.
+* From here, follow the [general Raspberry Pi instructions](#on-the-raspberry-pi) from the "Clone Monero-Classic and checkout most recent release version" step.
 
 #### On Windows:
 
@@ -400,7 +400,7 @@ application.
     cd monero-classic-v3
     ```
 
-* If you would like a specific [version/tag](https://github.com/monero-classic-lab/monero-classic-v3/tags), do a git checkout for that version. eg. 'v0.18.2.2'. If you don't care about the version and just want binaries from master, skip this step:
+* If you would like a specific [version/tag](https://github.com/monero-classic-lab/monero-classic-v3/tags), do a git checkout for that version. eg. 'v0.18.2.2.3'. If you don't care about the version and just want binaries from master, skip this step:
 
     ```bash
     
@@ -434,165 +434,6 @@ application.
 
 * The resulting executables can be found in `build/debug/bin`
 
-### On FreeBSD:
-
-The project can be built from scratch by following instructions for Linux above(but use `gmake` instead of `make`). 
-If you are running Monero-classic in a jail, you need to add `sysvsem="new"` to your jail configuration, otherwise lmdb will throw the error message: `Failed to open lmdb environment: Function not implemented`.
-
-Monero-classic is also available as a port or package as `moneroclassic-cli`.
-
-### On OpenBSD:
-
-You will need to add a few packages to your system. `pkg_add cmake gmake zeromq libiconv boost`.
-
-The `doxygen` and `graphviz` packages are optional and require the xbase set.
-Running the test suite also requires `py-requests` package.
-
-Build monero-classic: `env DEVELOPER_LOCAL_TOOLS=1 BOOST_ROOT=/usr/local gmake release-static`
-
-Note: you may encounter the following error when compiling the latest version of Monero-classic as a normal user:
-
-```
-LLVM ERROR: out of memory
-c++: error: unable to execute command: Abort trap (core dumped)
-```
-
-Then you need to increase the data ulimit size to 2GB and try again: `ulimit -d 2000000`
-
-### On NetBSD:
-
-Check that the dependencies are present: `pkg_info -c libexecinfo boost-headers boost-libs protobuf readline libusb1 zeromq git-base pkgconf gmake cmake | more`, and install any that are reported missing, using `pkg_add` or from your pkgsrc tree.  Readline is optional but worth having.
-
-Third-party dependencies are usually under `/usr/pkg/`, but if you have a custom setup, adjust the "/usr/pkg" (below) accordingly.
-
-Clone the monero-classic repository recursively and checkout the most recent release as described above. Then build monero-classic: `gmake BOOST_ROOT=/usr/pkg LDFLAGS="-Wl,-R/usr/pkg/lib" release`.  The resulting executables can be found in `build/NetBSD/[Release version]/Release/bin/`.
-
-### On Solaris:
-
-The default Solaris linker can't be used, you have to install GNU ld, then run cmake manually with the path to your copy of GNU ld:
-
-```bash
-mkdir -p build/release
-cd build/release
-cmake -DCMAKE_LINKER=/path/to/ld -D CMAKE_BUILD_TYPE=Release ../..
-cd ../..
-```
-
-Then you can run make as usual.
-
-### Building portable statically linked binaries
-
-By default, in either dynamically or statically linked builds, binaries target the specific host processor on which the build happens and are not portable to other processors. Portable binaries can be built using the following targets:
-
-* ```make release-static-linux-x86_64``` builds binaries on Linux on x86_64 portable across POSIX systems on x86_64 processors
-* ```make release-static-linux-i686``` builds binaries on Linux on x86_64 or i686 portable across POSIX systems on i686 processors
-* ```make release-static-linux-armv8``` builds binaries on Linux portable across POSIX systems on armv8 processors
-* ```make release-static-linux-armv7``` builds binaries on Linux portable across POSIX systems on armv7 processors
-* ```make release-static-linux-armv6``` builds binaries on Linux portable across POSIX systems on armv6 processors
-* ```make release-static-win64``` builds binaries on 64-bit Windows portable across 64-bit Windows systems
-* ```make release-static-win32``` builds binaries on 64-bit or 32-bit Windows portable across 32-bit Windows systems
-
-### Cross Compiling
-
-You can also cross-compile static binaries on Linux for Windows and macOS with the `depends` system.
-
-* ```make depends target=x86_64-linux-gnu``` for 64-bit linux binaries.
-* ```make depends target=x86_64-w64-mingw32``` for 64-bit windows binaries.
-  * Requires: `python3 g++-mingw-w64-x86-64 wine1.6 bc`
-* ```make depends target=x86_64-apple-darwin11``` for macOS binaries.
-  * Requires: `cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev`
-* ```make depends target=i686-linux-gnu``` for 32-bit linux binaries.
-  * Requires: `g++-multilib bc`
-* ```make depends target=i686-w64-mingw32``` for 32-bit windows binaries.
-  * Requires: `python3 g++-mingw-w64-i686`
-* ```make depends target=arm-linux-gnueabihf``` for armv7 binaries.
-  * Requires: `g++-arm-linux-gnueabihf`
-* ```make depends target=aarch64-linux-gnu``` for armv8 binaries.
-  * Requires: `g++-aarch64-linux-gnu`
-* ```make depends target=riscv64-linux-gnu``` for RISC V 64 bit binaries.
-  * Requires: `g++-riscv64-linux-gnu`
-* ```make depends target=x86_64-unknown-freebsd``` for freebsd binaries.
-  * Requires: `clang-8`
-* ```make depends target=arm-linux-android``` for 32bit android binaries
-* ```make depends target=aarch64-linux-android``` for 64bit android binaries
-
-
-The required packages are the names for each toolchain on apt. Depending on your distro, they may have different names. The `depends` system has been tested on Ubuntu 18.04 and 20.04.
-
-Using `depends` might also be easier to compile Monero-classic on Windows than using MSYS. Activate Windows Subsystem for Linux (WSL) with a distro (for example Ubuntu), install the apt build-essentials and follow the `depends` steps as depicted above.
-
-The produced binaries still link libc dynamically. If the binary is compiled on a current distribution, it might not run on an older distribution with an older installation of libc. Passing `-DBACKCOMPAT=ON` to cmake will make sure that the binary will run on systems having at least libc version 2.17.
-
-## Installing Monero-classic from a package
-
-**DISCLAIMER: These packages are not part of this repository or maintained by this project's contributors, and as such, do not go through the same review process to ensure their trustworthiness and security.**
-
-Packages are available for
-
-* Debian Buster
-
-    See the [instructions in the whonix/monero-gui repository](https://gitlab.com/whonix/monero-gui#how-to-install-monero-using-apt-get)
-
-* Debian Bullseye and Sid
-
-    ```bash
-    sudo apt install monero-classic
-    ```
-More info and versions in the [Debian package tracker](https://tracker.debian.org/pkg/monero).
-
-* Arch Linux [(via Community packages)](https://www.archlinux.org/packages/community/x86_64/monero/):
-
-    ```bash
-    sudo pacman -S monero-classic
-    ```
-
-* Void Linux:
-
-    ```bash
-    xbps-install -S monero-classic
-    ```
-
-* GuixSD
-
-    ```bash
-    guix package -i monero-classic
-    ```
-
-* Gentoo [Monero-classic overlay](https://github.com/gentoo-monero/gentoo-monero)
-
-    ```bash
-    emerge --noreplace eselect-repository
-    eselect repository enable monero-classic
-    emaint sync -r monero-classic
-    echo '*/*::monero-classic ~amd64' >> /etc/portage/package.accept_keywords
-    emerge net-p2p/monero-classic
-    ```
-
-* macOS [(homebrew)](https://brew.sh/)
-    ```bash
-    brew install monero-classic
-    ```
-
-* Docker
-
-    ```bash
-    # Build using all available cores
-    docker build -t monero-classic .
-
-    # or build using a specific number of cores (reduce RAM requirement)
-    docker build --build-arg NPROC=1 -t monero-classic .
-
-    # either run in foreground
-    docker run -it -v /monero/chain:/home/monero/.bitmonero -v /monero/wallet:/wallet -p 18080:18080 monero
-
-    # or in background
-    docker run -it -d -v /monero/chain:/home/monero/.bitmonero -v /monero/wallet:/wallet -p 18080:18080 monero
-    ```
-
-* The build needs 3 GB space.
-* Wait one hour or more
-
-Packaging for your favorite distribution would be a welcome contribution!
 
 ## Running moneroclassicd
 
